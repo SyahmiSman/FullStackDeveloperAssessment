@@ -19,6 +19,13 @@ html, body {
     height: auto;
 }
 
+
+.centered {
+    text-align: center;
+    width: 100%;
+}
+
+
 .registration {
     background-color: #fff;
     margin: 20px auto;
