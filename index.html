@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>FullStack Developer Assessment</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <br><br>
+    <div class="Mulahlogo">
+        <img src="mulah.png" alt="Mulah Logo">
+    </div>
+    <div class="welcome">
+        <h1>Hello,</h1>
+        <h1>Welcome!</h1>
+        <p>Check Your Loyalty Points & Rewards</p>
+
+        <form action="/submit" method="post" id="loyalty-form">
+            <div class="container">
+                <div class="form-group">
+                    <select id="country_code" name="country_code">
+                        <option value="60">+60</option>
+                        <option value="44">+44</option>
+                        <option value="91">+91</option>
+                    </select>
+                    <br><br> <br><br> <br><br>
+                    <input type="text" id="phone_number" name="phone_number" placeholder="Enter your mobile number" required>
+                </div>
+                <input type="submit" value="Check Loyalty Points">
+            </div>
+            <br><br> <br><br> <br><br>
+        </form>
+    </div>
+
+    <div class="partition-line"></div>
+    <a>Powered by <a href="https://www.mulahrewards.com/">MulahRewards.com</a></a>
+</body>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Find the form element
+        var loyaltyForm = document.getElementById('loyalty-form');
+        
+        // Add a submit event listener
+        loyaltyForm.addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent the default form submission
+            
+            // Get the selected country code and phone number
+            var countryCode = document.getElementById('country_code').value;
+            var phoneNumber = document.getElementById('phone_number').value;
+            
+            // Construct the URL with query parameters and redirect
+            var redirectURL = 'page2.html?country_code=' + countryCode + '&phone_number=' + phoneNumber;
+            window.location.href = redirectURL;
+        });
+    });
+</script>
+</html>

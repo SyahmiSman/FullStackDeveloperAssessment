@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style2.css">
+</head>
+<body>
+    <div class="Mulahlogo">
+        <img src="mulah.png">
+    </div>
+    <div class="registration">
+
+        <h1>Registration</h1>
+        <p>Please fill your details</p>
+
+        <form id="registration-form" action="/submit" method="post">
+            <div class="form-group">
+                <label for="name">Name:</label><br>
+                <input type="text" id="name" name="name" required><br>
+                <span class="validation-message">* Please insert name</span><br><br>
+            </div>
+    
+            <div class="form-group">
+                <label for="day">Birthday:</label>
+                <div class="birthdate-inputs">
+                    <input type="number" id="day" name="day" min="1" max="31" placeholder="DD" required>
+                    <input type="number" id="month" name="month" min="1" max="12" placeholder="MM" required>
+                    <input type="number" id="year" name="year" min="1900" max="2099" placeholder="YYYY" required>
+                </div>
+                <span class="validation-message">* Please insert your birthday</span>
+            </div>
+            
+    
+            <div class="form-group">
+                <label for="email">Email Address:</label><br>
+                <input type="email" id="email" name="email"><br>
+                <span class="validation-message">* Please insert a valid email address</span>
+            </div>
+    
+            <div class="form-group">
+                <input type="checkbox" id="no-email" name="no_email">
+                <label for="no-email">No Email Address</label>
+            </div>
+    
+            <div class="form-group">
+                <input type="submit" value="Continue">
+            </div>
+        </form>
+
+    </div>
+    
+</body>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const registrationForm = document.getElementById('registration-form');
+        registrationForm.addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            // Get the form data
+            const formData = new FormData(registrationForm);
+            const name = formData.get('name');
+            const day = formData.get('day');
+            const month = formData.get('month');
+            const year = formData.get('year');
+            const email = formData.get('email');
+            const noEmail = formData.get('no-email');
+            
+            // Construct the URL with query parameters and redirect to Page 3
+            const redirectURL = `page3.html?name=${name}&day=${day}&month=${month}&year=${year}&email=${email}&no-email=${noEmail}`;
+            window.location.href = redirectURL;
+        });
+    });
+</script>
+</html>
